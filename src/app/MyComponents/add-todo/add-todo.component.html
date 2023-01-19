@@ -1,0 +1,47 @@
+<div class="my-3">
+  <h4>Add Todo</h4>
+  <form #addingForm="ngForm" (ngSubmit)="onSubmit(addingForm)">
+    <div class="mb-3">
+      <label for="title" class="form-label">Todo Title</label>
+      <input
+        type="text"
+        required
+        #name="ngModel"
+        [(ngModel)]="title"
+        class="form-control"
+        id="title"
+        name="title"
+        placeholder="Title"
+      />
+    </div>
+    <span class="warning" *ngIf="name.invalid && name.touched"
+      >Title Empty (Should start with a Character)</span
+    >
+    <br /><br />
+
+    <div class="mb-3">
+      <label for="desc" class="form-label">Todo Description</label>
+      <input
+        type="text"
+        required
+        #name1="ngModel"
+        [(ngModel)]="desc"
+        class="form-control"
+        id="desc"
+        name="desc"
+        placeholder="Description"
+      />
+    </div>
+    <span class="warning" *ngIf="name1.invalid && name1.touched"
+      >Description Empty (Should start with a Character)</span
+    >
+    <br /><br />
+    <button
+      type="submit"
+      class="btn btn-sm btn-primary"
+      [disabled]="addingForm.invalid"
+    >
+      Add Todo
+    </button>
+  </form>
+</div>
